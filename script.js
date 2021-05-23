@@ -1,4 +1,8 @@
-import { incrementCounter, decrementCounter } from './actions.js';
+import { 
+  incrementCounter, 
+  decrementCounter 
+} from './actions.js';
+
 import reducer from './reducer.js';
 
 const store = Redux.createStore(reducer);

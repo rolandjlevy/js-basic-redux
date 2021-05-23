@@ -1,10 +1,10 @@
 import * as actions from './actionTypes.js';
 
-const initialState = {
-  counter: 0
-}
-
 let lastId = 0;
+
+const initialState = {
+  counter: lastId
+}
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
