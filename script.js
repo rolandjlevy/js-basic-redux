@@ -1,3 +1,6 @@
+// in a Node application redux methods are imported:
+// import { createStore } from 'redux';
+
 import { 
   incrementCounter, 
   decrementCounter 
