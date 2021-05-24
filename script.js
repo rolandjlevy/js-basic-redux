@@ -1,27 +1,47 @@
-// in a Node application redux methods are imported:
-// import { createStore } from 'redux';
-
 import { 
   incrementCounter, 
-  decrementCounter 
-} from './actions.js';
+  decrementCounter,
+  addItem,
+  deleteItem
+} from './src/actions.js';
 
-import reducer from './reducer.js';
-
+import { $, $$ } from './src/utils.js';
+import reducer from './src/reducer.js';
 const store = Redux.createStore(reducer);
-
-const $ = (el) => document.querySelector(el);
 
 $('#increment').addEventListener('click', (e) => {
   store.dispatch(incrementCounter());
-  render();
+  renderCounter();
 });
 
 $('#decrement').addEventListener('click', (e) => {
   store.dispatch(decrementCounter());
-  render();
+  renderCounter();
 });
 
-function render() {
+$('#add-item').addEventListener('click', (e) => {
+  if (!$('#item').value.length) return;
+  store.dispatch(addItem());
+  renderItems();
+  $('#item').value = '';
+});
+
+function renderCounter() {
   $('#counter').textContent = store.getState().counter;
+}
+
+function renderItems() {
+  $('#items').innerHTML = '';
+  store.getState().items.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item.content;
+    const span = document.createElement('span');
+    span.textContent = '×';
+    li.appendChild(span);
+    span.addEventListener('click', (e) => {
+      store.dispatch(deleteItem(item.id));
+      e.target.parentNode.remove();
+    });
+    $('#items').appendChild(li);
+  });
 }

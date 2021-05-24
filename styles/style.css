@@ -1,0 +1,22 @@
+#items > li {
+  padding: 3px 0;
+  margin: 3px 0;
+}
+
+#items > li > span {
+  padding: 0 5px;
+  margin: 0 5px;
+  background: #666;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+#items > li > span:hover {
+  background: #333;
+}
+
+.btn {
+  cursor: pointer;
+}
