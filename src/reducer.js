@@ -1,4 +1,4 @@
-import * as actions from './actionTypes.js';
+import * as actionTypes from './actionTypes.js';
 
 let count = 0;
 let lastId = 0;
@@ -11,17 +11,17 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case actions.INCREMENT_COUNTER:
+    case actionTypes.INCREMENT_COUNTER:
       return {
         ...state,
         counter: ++count
       }
-    case actions.DECREMENT_COUNTER:
+    case actionTypes.DECREMENT_COUNTER:
       return {
         ...state,
         counter: --count
       }
-    case actions.ADD_ITEM:
+    case actionTypes.ADD_ITEM:
       return {
         ...state,
         items: [
@@ -29,7 +29,7 @@ export default function reducer(state = initialState, action) {
           { id: ++lastId, content:action.content }
         ]
       }
-    case actions.DELETE_ITEM:
+    case actionTypes.DELETE_ITEM:
       return {
         ...state,
         items: state.items.filter(item => item.id !== action.id)

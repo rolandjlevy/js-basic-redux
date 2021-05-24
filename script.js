@@ -1,27 +1,21 @@
-import { 
-  incrementCounter, 
-  decrementCounter,
-  addItem,
-  deleteItem
-} from './src/actions.js';
-
 import { $, $$ } from './src/utils.js';
+import * as actions from './src/actions.js';
 import reducer from './src/reducer.js';
 const store = Redux.createStore(reducer);
 
 $('#increment').addEventListener('click', (e) => {
-  store.dispatch(incrementCounter());
+  store.dispatch(actions.incrementCounter());
   renderCounter();
 });
 
 $('#decrement').addEventListener('click', (e) => {
-  store.dispatch(decrementCounter());
+  store.dispatch(actions.decrementCounter());
   renderCounter();
 });
 
 $('#add-item').addEventListener('click', (e) => {
   if (!$('#item').value.length) return;
-  store.dispatch(addItem());
+  store.dispatch(actions.addItem());
   renderItems();
   $('#item').value = '';
 });
@@ -39,7 +33,7 @@ function renderItems() {
     span.textContent = '×';
     li.appendChild(span);
     span.addEventListener('click', (e) => {
-      store.dispatch(deleteItem(item.id));
+      store.dispatch(actions.deleteItem(item.id));
       e.target.parentNode.remove();
     });
     $('#items').appendChild(li);

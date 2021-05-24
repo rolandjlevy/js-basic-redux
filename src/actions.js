@@ -1,24 +1,24 @@
-import * as actions from './actionTypes.js';
+import * as actionTypes from './actionTypes.js';
 import { $ } from './utils.js';
 
 function incrementCounter() {
-  return { type: actions.INCREMENT_COUNTER }
+  return { type: actionTypes.INCREMENT_COUNTER }
 }
 
 function decrementCounter() {
-  return { type: actions.DECREMENT_COUNTER }
+  return { type: actionTypes.DECREMENT_COUNTER }
 }
 
 function addItem() {
   return {
-    type: actions.ADD_ITEM,
+    type: actionTypes.ADD_ITEM,
     content: $('#item').value
   }
 }
 
 function deleteItem(id) {
   return {
-    type: actions.DELETE_ITEM,
+    type: actionTypes.DELETE_ITEM,
     id
   }
 }
