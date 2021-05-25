@@ -13,12 +13,18 @@ $('#decrement').addEventListener('click', (e) => {
   renderCounter();
 });
 
-$('#add-item').addEventListener('click', (e) => {
+$('#add-item').addEventListener('click', (e) => addItem());
+
+$('#item').addEventListener('keyup', (e) => {
+  if (e.key === 'Enter') addItem()
+});
+
+function addItem() {
   if (!$('#item').value.length) return;
   store.dispatch(actions.addItem());
   renderItems();
   $('#item').value = '';
-});
+}
 
 function renderCounter() {
   $('#counter').textContent = store.getState().counter;

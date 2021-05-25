@@ -17,6 +17,11 @@
   background: #333;
 }
 
+input#item {
+  padding: 3px 6px;
+}
+
 .btn {
   cursor: pointer;
+  height: 25px;
 }
