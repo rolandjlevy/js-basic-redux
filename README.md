@@ -1,3 +1,3 @@
 # Basic Redux
 
-> A basic counter using Redux to manage state - inspired by [this tutorial](https://www.youtube.com/watch?v=oD3miHerQbY)
+> A basic counter and todo list using Redux - inspired by [this tutorial](https://www.youtube.com/watch?v=oD3miHerQbY)
